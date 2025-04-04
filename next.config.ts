@@ -7,10 +7,10 @@ import { setupDevPlatform } from '@cloudflare/next-on-pages/next-dev';
 // https://github.com/cloudflare/next-on-pages/blob/main/internal-packages/next-dev/README.md
 setupDevPlatform().catch(console.error);
 
-import type { NextConfig } from "next";
+import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
-  /* config options here */
+    /* config options here */
 };
 
 export default nextConfig;
