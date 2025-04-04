@@ -1,25 +1,22 @@
 import logo from '@/images/logo.png';
 import Image from 'next/image';
 import Link from 'next/link';
-import * as motion from 'motion/react-client';
+import Nav from './Nav';
 
 export default function Header() {
     return (
-        <header className="bg-zinc-50 p-2 border-b border-zinc-200 shadow">
+        <header className="bg-sky-100 p-2 border-b border-zinc-200 shadow grid grid-cols-[1fr_auto] md:grid-cols-[300px_1fr_300px] items-center">
             <Link href="/" className="flex items-center gap-2">
-                <motion.div
-                    initial={{ rotate: 3, opacity: 0, scale: 0.8 }}
-                    animate={{ rotate: 0, opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.5, type: 'spring', delay: 0.25 }}
-                >
+                <div>
                     <Image
                         src={logo}
                         alt="Joe Attardi"
                         height={48}
                         className="-rotate-3 hover:scale-105 hover:saturate-150 hover:-rotate-6 transition-all shadow-lg rounded-lg"
                     />
-                </motion.div>
+                </div>
             </Link>
+            <Nav />
         </header>
     );
 }

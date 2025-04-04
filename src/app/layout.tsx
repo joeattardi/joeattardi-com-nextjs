@@ -25,7 +25,7 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body className={clsx(onest.className, 'antialiased bg-slate-100 min-h-screen max-w-7xl flex flex-col mx-auto')}>
+            <body className={clsx(onest.className, 'antialiased bg-gradient-to-b from-blue-50 to-purple-50 min-h-screen max-w-7xl flex flex-col mx-auto')}>
               <Header />
               <main className="bg-white flex-grow  shadow p-4">{children}</main>
              <Footer />

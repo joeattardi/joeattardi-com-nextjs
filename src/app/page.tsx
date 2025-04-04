@@ -30,7 +30,7 @@ export default function Home() {
                     </section>
                 </motion.div>
                 <motion.div
-                    className="rounded-full p-2 bg-white border border-zinc-200 shadow-lg"
+                    className="p-2 bg-white border border-zinc-200 shadow-lg rounded-full"
                     initial={{ rotateY: 30, opacity: 0 }}
                     animate={{ rotateY: 0, opacity: 1 }}
                     transition={{ duration: 0.5 }}
@@ -38,7 +38,7 @@ export default function Home() {
                     <Image
                         src={joe}
                         alt="Joe Attardi"
-                        className="rounded-full border border-zinc-200 w-32 md:w-48"
+                        className="border rounded-full border-zinc-200 w-32 md:w-64"
                     />
                 </motion.div>
             </section>
