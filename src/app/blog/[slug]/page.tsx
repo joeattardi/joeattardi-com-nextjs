@@ -3,7 +3,6 @@ import { getPost } from '../utils';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import rehypeHighlight from 'rehype-highlight';
 import '@/app/atom-one-dark.css';
-import Image from 'next/image';
 
 const options = {
     mdxOptions: {
