@@ -1,12 +1,17 @@
 import joe from '@/images/avatar.jpg';
 import Image from 'next/image';
+import Link from 'next/link';
 import SocialButton from '@/components/SocialButton';
 import { PiEnvelope, PiXLogo, PiLinkedinLogo, PiGithubLogo } from 'react-icons/pi';
 import * as motion from 'motion/react-client';
+import { getPosts } from './blog/utils';
 
-export default function Home() {
+export default async function Home() {
+    const posts = await getPosts();
+    const latestPosts = posts.slice(0, 3);
+
     return (
-        <div className="flex flex-col items-center gap-4">
+        <div className="flex flex-col items-center gap-8">
             <section className="md:w-2/3 flex flex-col md:flex-row items-center gap-4 md:gap-8">
                 <motion.div
                     initial={{ opacity: 0, y: 10 }}
@@ -41,6 +46,49 @@ export default function Home() {
                         className="border rounded-full border-zinc-200 w-32 md:w-64"
                     />
                 </motion.div>
+            </section>
+
+            <section className="w-full max-w-7xl px-4">
+                <h2 className="text-3xl font-bold mb-6">Latest Blog Posts</h2>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    {latestPosts.map((post) => (
+                        <Link 
+                            href={`/blog/${post.slug}`} 
+                            key={post.slug}
+                            className="group block"
+                        >
+                            <article className="h-full bg-white rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden border border-zinc-200">
+                                {post.image && (
+                                    <div className="aspect-video relative">
+                                        <Image
+                                            src={post.image}
+                                            alt={post.title}
+                                            fill
+                                            className="object-cover"
+                                        />
+                                    </div>
+                                )}
+                                <div className="p-6 flex flex-col">
+                                    <h3 className="text-xl font-bold mb-2 group-hover:text-blue-600 transition-colors">
+                                        {post.title}
+                                    </h3>
+                                    {post.description && (
+                                        <p className="text-zinc-600 mb-4 flex-grow">
+                                            {post.description}
+                                        </p>
+                                    )}
+                                    <time className="text-sm text-zinc-500">
+                                        {new Date(post.pubDate).toLocaleDateString('en-US', {
+                                            year: 'numeric',
+                                            month: 'long',
+                                            day: 'numeric'
+                                        })}
+                                    </time>
+                                </div>
+                            </article>
+                        </Link>
+                    ))}
+                </div>
             </section>
         </div>
     );

@@ -4,6 +4,9 @@ import matter from 'gray-matter';
 type Post = {
     title: string;
     slug: string;
+    pubDate: string;
+    description?: string;
+    image?: string;
 }
 
 export async function getPosts() {
@@ -16,6 +19,8 @@ export async function getPosts() {
             return { ...data, slug: file.replace('.mdx', '') };
         })
     ) as Post[];
+
+    posts.sort((a, b) => new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime());
 
     return posts;
 }

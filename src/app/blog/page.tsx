@@ -2,6 +2,7 @@ import fs from 'fs/promises';
 import Link from 'next/link';
 import matter from 'gray-matter';
 import Image from 'next/image';
+import { getPosts } from './utils';
 
 type Post = {
     title: string;
@@ -17,18 +18,7 @@ const formatDate = (date: string) => {
 };
 
 export default async function BlogPage() {
-    const files = await fs.readdir('./src/blog');
-
-    const posts = await Promise.all(
-        files.map(async (file) => {
-            const content = await fs.readFile(`./src/blog/${file}`, 'utf8');
-            const { data } = matter(content);
-            return { ...data, slug: file.replace('.mdx', '') };
-        })
-    ) as Post[];
-
-    posts.sort((a, b) => new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime());
-
+    const posts = await getPosts();
     const featuredPosts = posts.slice(0, 3);
     const otherPosts = posts.slice(3);
     
