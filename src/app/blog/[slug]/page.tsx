@@ -18,7 +18,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
     return (
         <div className="flex flex-col gap-4 items-center w-[90vw] md:max-w-prose mx-auto">
             <h2 className="text-4xl font-bold">{post.data.title}</h2>
-            <article className="prose md:prose-lg w-[90vw] md:w-full">
+            <article className="prose md:prose-lg prose-li:m-0 w-[90vw] md:w-full">
                 <MDXRemote source={post.content} options={options}/>
             </article>
         </div>
