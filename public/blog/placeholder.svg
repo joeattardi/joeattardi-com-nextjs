@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="675" version="1.1" viewBox="0 0 1200 675" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="675" fill="#f1f5f9"/>
+  
+  <!-- Abstract pattern design -->
+  <defs>
+    <pattern id="smallGrid" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#e2e8f0" stroke-width="1"/>
+    </pattern>
+    <pattern id="grid" width="150" height="150" patternUnits="userSpaceOnUse">
+      <rect width="150" height="150" fill="url(#smallGrid)"/>
+    </pattern>
+  </defs>
+
+  <!-- Background grid -->
+  <rect width="100%" height="100%" fill="url(#grid)"/>
+
+  <!-- Decorative circles -->
+  <circle cx="300" cy="337.5" r="150" fill="#94a3b8" opacity="0.3"/>
+  <circle cx="900" cy="337.5" r="200" fill="#64748b" opacity="0.2"/>
+  
+  <!-- Abstract shapes -->
+  <path d="M 600,100 L 800,300 L 600,500 L 400,300 Z" fill="#475569" opacity="0.15"/>
+  <path d="M 500,200 L 700,400 L 500,600 L 300,400 Z" fill="#334155" opacity="0.1"/>
+  
+  <!-- Decorative lines -->
+  <line x1="0" y1="0" x2="1200" y2="675" stroke="#94a3b8" stroke-width="2" opacity="0.1"/>
+  <line x1="1200" y1="0" x2="0" y2="675" stroke="#94a3b8" stroke-width="2" opacity="0.1"/>
+</svg> 
