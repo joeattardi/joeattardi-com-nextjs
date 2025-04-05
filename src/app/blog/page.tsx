@@ -5,6 +5,7 @@ import matter from 'gray-matter';
 type Post = {
     title: string;
     slug: string;
+    pubDate: string;
 }
 
 export default async function BlogPage() {
@@ -17,6 +18,8 @@ export default async function BlogPage() {
             return { ...data, slug: file.replace('.mdx', '') };
         })
     ) as Post[];
+
+    posts.sort((a, b) => new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime());
 
     return (
         <div>
