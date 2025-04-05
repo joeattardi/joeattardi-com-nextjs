@@ -15,6 +15,11 @@ export const metadata: Metadata = {
     description: "Joe Attardi's personal website",
     icons: {
         icon: '/favicon.png'
+    },
+    alternates: {
+        types: {
+            'application/rss+xml': '/rss.xml'
+        }
     }
 };
 
