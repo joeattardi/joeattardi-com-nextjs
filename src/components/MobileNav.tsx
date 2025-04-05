@@ -39,16 +39,6 @@ export default function MobileNav() {
                             <MobileNavItem href="/blog" onClick={handleClose}>Blog</MobileNavItem>
                             <MobileNavItem href="/books" onClick={handleClose}>Books</MobileNavItem>
                             <MobileNavItem href="/articles" onClick={handleClose}>Articles</MobileNavItem>
-                            <li>
-                                <a 
-                                    href="/rss.xml" 
-                                    className="block px-4 py-2 text-zinc-600 hover:text-blue-600 transition-colors flex items-center gap-2"
-                                    onClick={handleClose}
-                                >
-                                    <PiRss className="text-lg" />
-                                    RSS Feed
-                                </a>
-                            </li>
                         </ul>
                     </motion.div>
                 )}
