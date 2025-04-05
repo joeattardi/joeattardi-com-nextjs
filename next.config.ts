@@ -1,4 +1,5 @@
 import { setupDevPlatform } from '@cloudflare/next-on-pages/next-dev';
+import createMDX from '@next/mdx';
 
 // Here we use the @cloudflare/next-on-pages next-dev module to allow us to
 // use bindings during local development (when running the application with
@@ -11,6 +12,10 @@ import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
     /* config options here */
+    pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'mdx']
 };
 
-export default nextConfig;
+const withMDX = createMDX({
+});
+
+export default withMDX(nextConfig);

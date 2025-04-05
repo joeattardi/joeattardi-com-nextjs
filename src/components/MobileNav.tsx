@@ -36,6 +36,7 @@ export default function MobileNav() {
                         <div className="p-2"><Image src={logo} alt="logo" height={48} className="-rotate-3" /></div>
                         <ul className="flex flex-col gap-4 m-4">
                             <MobileNavItem href="/" onClick={handleClose}>Home</MobileNavItem>
+                            <MobileNavItem href="/blog" onClick={handleClose}>Blog</MobileNavItem>
                             <MobileNavItem href="/books" onClick={handleClose}>Books</MobileNavItem>
                             <MobileNavItem href="/articles" onClick={handleClose}>Articles</MobileNavItem>
                         </ul>
