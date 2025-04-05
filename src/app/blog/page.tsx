@@ -1,16 +1,12 @@
-import fs from 'fs/promises';
-import Link from 'next/link';
-import matter from 'gray-matter';
+import { Metadata } from 'next';
 import Image from 'next/image';
+import Link from 'next/link';
 import { getPosts } from './utils';
 
-type Post = {
-    title: string;
-    slug: string;
-    pubDate: string;
-    description?: string;
-    image?: string;
-}
+export const metadata: Metadata = {
+    title: 'Blog | Joe Attardi',
+    description: 'Blog posts by Joe Attardi',
+};
 
 const formatDate = (date: string) => {
     const options: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'long', day: 'numeric' };

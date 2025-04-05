@@ -10,36 +10,57 @@ const options = {
     }
 };
 
+// Helper function to get post data - this will be reused
+async function getPostData(params: Promise<{ slug: string }>) {
+    const { slug } = await params;
+    return getPost(slug);
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+    const post = await getPostData(params);
+
+    return {
+        title: `${post.data.title} | Joe Attardi`
+    };
+}
+
 const formatDate = (date: string) => {
     const options: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'long', day: 'numeric' };
     return new Date(date).toLocaleDateString('en-US', options);
 };
 
 export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
-    const { slug } = await params;
-    const post = await getPost(slug);
+    const post = await getPostData(params);
 
     return (
-        <div className="flex flex-col gap-8 items-center w-[90vw] md:max-w-prose mx-auto">
-            <div className="flex flex-col gap-4">
-                <h2 className="text-4xl font-bold">{post.data.title}</h2>
-                <h3 className="text-lg text-zinc-500">{post.data.description}</h3>
-                <div className="flex items-center gap-2">
-                    <div className="text-zinc-600  self-start">Joe Attardi</div>
-                    <span> • </span>
-                    <div className="text-zinc-600  self-start">{formatDate(post.data.pubDate)}</div>
+        <>
+            <div className="flex flex-col gap-8 items-center w-[90vw] md:max-w-prose mx-auto">
+                <div className="flex flex-col gap-4">
+                    <h2 className="text-4xl font-bold">{post.data.title}</h2>
+                    <h3 className="text-lg text-zinc-500">{post.data.description}</h3>
+                    <div className="flex items-center gap-2">
+                        <div className="text-zinc-600  self-start">Joe Attardi</div>
+                        <span> • </span>
+                        <div className="text-zinc-600  self-start">
+                            {formatDate(post.data.pubDate)}
+                        </div>
+                    </div>
                 </div>
+                {post.data.image && (
+                    <div className="flex flex-col gap-2">
+                        <img
+                            src={post.data.image}
+                            alt={post.data.title}
+                            className="rounded-xl shadow-lg"
+                        />
+                        <small>{post.data.imageCredit}</small>
+                    </div>
+                )}
+                <article className="prose md:prose-lg prose-h2:my-2 prose-h3:my-2 prose-li:m-0 prose-img:mx-auto w-[90vw] md:w-full">
+                    <MDXRemote source={post.content} options={options} />
+                </article>
             </div>
-            {post.data.image && (
-                <div className="flex flex-col gap-2">
-                    <img src={post.data.image} alt={post.data.title} className="rounded-xl shadow-lg" />
-                    <small>{post.data.imageCredit}</small>
-                </div>
-            )}
-            <article className="prose md:prose-lg prose-h2:my-2 prose-h3:my-2 prose-li:m-0 prose-img:mx-auto w-[90vw] md:w-full">
-                <MDXRemote source={post.content} options={options} />
-            </article>
-        </div>
+        </>
     );
 }
 
