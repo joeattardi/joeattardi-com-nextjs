@@ -1,2 +1,10 @@
 @import 'tailwindcss';
 @plugin "@tailwindcss/typography";
+
+code::before {
+    display: none;
+}
+
+code::after {
+    display: none;
+}
