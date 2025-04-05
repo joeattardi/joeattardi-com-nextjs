@@ -48,7 +48,12 @@ export default async function Home() {
                 </motion.div>
             </section>
 
-            <section className="w-full max-w-7xl px-4">
+            <motion.section 
+                className="w-full max-w-7xl px-4"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.25 }}
+            >
                 <h2 className="text-3xl font-bold mb-6">Latest Blog Posts</h2>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                     {latestPosts.map((post) => (
@@ -89,7 +94,7 @@ export default async function Home() {
                         </Link>
                     ))}
                 </div>
-            </section>
+            </motion.section>
         </div>
     );
 }
