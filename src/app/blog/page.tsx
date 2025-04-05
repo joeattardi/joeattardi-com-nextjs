@@ -18,8 +18,6 @@ export default async function BlogPage() {
         })
     ) as Post[];
 
-    console.log(posts);
-
     return (
         <div>
             <h1>Blog</h1>
