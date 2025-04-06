@@ -12,19 +12,23 @@ export default function Books() {
     const books = [
         {
             title: 'Web API Cookbook',
-            description: 'Your comprehensive guide to modern web APIs and browser capabilities. Master the tools you need to build powerful web applications.',
+            description:
+                'Your comprehensive guide to modern web APIs and browser capabilities. Master the tools you need to build powerful web applications.',
             cover: webApiCookbookCover,
             link: '/books/web-api-cookbook',
-            amazonLink: 'https://www.amazon.com/Web-API-Cookbook-JavaScript-Applications/dp/1098150694',
+            amazonLink:
+                'https://www.amazon.com/Web-API-Cookbook-JavaScript-Applications/dp/1098150694',
             publisher: "O'Reilly Media",
             publishDate: '2024'
         },
         {
             title: 'Modern CSS',
-            description: 'Master the key concepts of CSS for modern web development. Learn how to create responsive, maintainable, and beautiful websites.',
+            description:
+                'Master the key concepts of CSS for modern web development. Learn how to create responsive, maintainable, and beautiful websites.',
             cover: '/blog/modern-css-cover.jpg',
             link: '/books/modern-css',
-            amazonLink: 'https://www.amazon.com/Modern-CSS-Master-Concepts-Development/dp/148426293X',
+            amazonLink:
+                'https://www.amazon.com/Modern-CSS-Master-Concepts-Development/dp/148426293X',
             publisher: 'Apress',
             publishDate: '2020'
         }
@@ -33,24 +37,33 @@ export default function Books() {
     return (
         <div className="max-w-5xl mx-auto px-4 py-8">
             <h1 className="text-4xl font-bold mb-12">Books</h1>
-            
+
             <div className="space-y-12">
                 {books.map((book) => (
-                    <article key={book.title} className="bg-white rounded-xl shadow-lg overflow-hidden border border-zinc-200 hover:shadow-xl transition-shadow duration-300 p-4">
+                    <article
+                        key={book.title}
+                        className="bg-white rounded-xl shadow-lg overflow-hidden border border-zinc-200 hover:shadow-xl transition-shadow duration-300 p-4"
+                    >
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                             <div className="relative aspect-[3/4] bg-gray-100 md:col-span-1">
-                                <Image
-                                    src={book.cover}
-                                    alt={`${book.title} book cover`}
-                                    fill
-                                    className="object-contain"
-                                    sizes="(max-width: 768px) 100vw, 33vw"
-                                    priority
-                                />
+                                <Link href={book.link}>
+                                    <Image
+                                        src={book.cover}
+                                        alt={`${book.title} book cover`}
+                                        fill
+                                        className="object-contain hover:scale-105 hover:rotate-2 transition-transform"
+                                        sizes="(max-width: 768px) 100vw, 33vw"
+                                        priority
+                                    />
+                                </Link>
                             </div>
                             <div className="p-8 md:col-span-2 flex flex-col">
-                                <h2 className="text-3xl font-bold mb-4"><Link href={book.link}>{book.title}</Link></h2>
-                                <p className="text-zinc-600 mb-6 text-lg flex-grow">{book.description}</p>
+                                <h2 className="text-3xl font-bold mb-4">
+                                    <Link href={book.link}>{book.title}</Link>
+                                </h2>
+                                <p className="text-zinc-600 mb-6 text-lg flex-grow">
+                                    {book.description}
+                                </p>
                                 <div className="space-y-4">
                                     <div className="text-zinc-500">
                                         Published by {book.publisher}, {book.publishDate}
