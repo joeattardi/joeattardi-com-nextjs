@@ -1,7 +1,6 @@
-import { FaAmazon, FaBookOpen, FaApple, FaGoogle } from 'react-icons/fa';
-import { SiOreilly } from 'react-icons/si';
-import Image from 'next/image';
 import modernCssCover from '@/images/modern-css-cover.jpg';
+import Image from 'next/image';
+import { FaAmazon, FaApple, FaBookOpen } from 'react-icons/fa';
 
 export default function ModernCSSPage() {
   const tableOfContents = [

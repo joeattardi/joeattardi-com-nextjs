@@ -108,7 +108,7 @@ export default function WebAPICookbookPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
               <blockquote className="text-lg text-gray-700 mb-4">
-                &ldquo;Web API Cookbook covers a wide range of browser-based APIs and provides valuable examples for all skill levels. Plus, Joe's writing style and thoughtful explanations make the learning enjoyable. This is a must-read for web developers!&rdquo;
+                &ldquo;Web API Cookbook covers a wide range of browser-based APIs and provides valuable examples for all skill levels. Plus, Joe&apos;s writing style and thoughtful explanations make the learning enjoyable. This is a must-read for web developers!&rdquo;
               </blockquote>
               <cite className="text-gray-900 font-semibold">
                 — Sarah Shook, Software developer/owner, Shook LLC
