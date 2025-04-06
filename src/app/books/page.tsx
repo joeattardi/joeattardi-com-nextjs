@@ -23,6 +23,7 @@ export default function Books() {
             title: 'Modern CSS',
             description: 'Master the key concepts of CSS for modern web development. Learn how to create responsive, maintainable, and beautiful websites.',
             cover: '/blog/modern-css-cover.jpg',
+            link: '/books/modern-css',
             amazonLink: 'https://www.amazon.com/Modern-CSS-Master-Concepts-Development/dp/148426293X',
             publisher: 'Apress',
             publishDate: '2020'
@@ -48,7 +49,7 @@ export default function Books() {
                                 />
                             </div>
                             <div className="p-8 md:col-span-2 flex flex-col">
-                                <h2 className="text-3xl font-bold mb-4">{book.title}</h2>
+                                <h2 className="text-3xl font-bold mb-4"><Link href={book.link}>{book.title}</Link></h2>
                                 <p className="text-zinc-600 mb-6 text-lg flex-grow">{book.description}</p>
                                 <div className="space-y-4">
                                     <div className="text-zinc-500">
