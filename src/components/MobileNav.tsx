@@ -2,7 +2,7 @@
 import logo from '@/images/logo.png';
 import Image from 'next/image';
 import { useState } from 'react';
-import { PiList, PiX, PiRss } from 'react-icons/pi';
+import { PiList, PiX } from 'react-icons/pi';
 import * as motion from 'motion/react-client';
 import { AnimatePresence } from 'motion/react';
 import Link from 'next/link';
