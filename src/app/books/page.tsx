@@ -36,7 +36,7 @@ export default function Books() {
             
             <div className="space-y-12">
                 {books.map((book) => (
-                    <article key={book.title} className="bg-white rounded-xl shadow-lg overflow-hidden border border-zinc-200 hover:shadow-xl transition-shadow duration-300">
+                    <article key={book.title} className="bg-white rounded-xl shadow-lg overflow-hidden border border-zinc-200 hover:shadow-xl transition-shadow duration-300 p-4">
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                             <div className="relative aspect-[3/4] bg-gray-100 md:col-span-1">
                                 <Image
