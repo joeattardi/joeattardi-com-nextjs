@@ -44,15 +44,15 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
                 <div className="flex flex-col gap-2 w-full">
                     <h2 className="text-4xl font-bold">{post.data.title}</h2>
                     <h3 className="text-lg text-zinc-500">{post.data.description}</h3>
-                    <div className="flex items-center gap-2">
+                    <div className="flex flex-col md:flex-row items-center gap-1 md:gap-2">
                         <div className="text-zinc-600 self-start flex items-center gap-1">
                             <PiUser /> Joe Attardi
                         </div>
-                        <span> • </span>
+                        <span className="hidden md:block"> • </span>
                         <div className="text-zinc-600 self-start flex items-center gap-1">
                             <PiCalendar />{formatDate(post.data.pubDate)}
                         </div>
-                        <span> • </span>
+                        <span className="hidden md:block"> • </span>
                         <div className="text-zinc-600 self-start flex items-center gap-1">
                             <PiClock /> {readingTime}
                         </div>
