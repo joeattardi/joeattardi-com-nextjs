@@ -21,14 +21,14 @@ const projects = [
         title: 'URL Scrub',
         description: 'A tool for building and cleaning URLs. Use the visual URL builder, or paste in a URL and automatically remove tracking parameters to protect your privacy.',
         image: '/images/projects/url-scrub.png',
-        tags: ['JavaScript'],
+        tags: ['JavaScript', 'React'],
         link: 'https://urlscrub.com'
     },
     {
         title: 'JSON Colorizer',
         description: 'An npm package to pretty-print JSON data with syntax highlighting.',
         image: '/images/projects/json-colorizer.png',
-        tags: ['JavaScript'],
+        tags: ['TypeScript'],
         link: 'https://www.npmjs.com/package/json-colorizer'
     },
     {

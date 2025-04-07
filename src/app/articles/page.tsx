@@ -16,7 +16,7 @@ export default function ArticlesPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
-            className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-200"
+            className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-200"
           >
             <Link 
               href={article.url}
@@ -25,10 +25,10 @@ export default function ArticlesPage() {
               className="block"
             >
               <div className="flex justify-between items-start mb-2">
-                <h2 className="text-2xl font-semibold text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400">
+                <h2 className="text-2xl font-semibold text-gray-900 hover:text-blue-600">
                   {article.title}
                 </h2>
-                <span className="text-sm text-gray-500 dark:text-gray-400">
+                <span className="text-sm text-gray-500">
                   {new Date(article.date).toLocaleDateString('en-US', {
                     year: 'numeric',
                     month: 'long',
@@ -36,10 +36,10 @@ export default function ArticlesPage() {
                   })}
                 </span>
               </div>
-              <p className="text-gray-600 dark:text-gray-300 mb-4">
+              <p className="text-gray-600 mb-4">
                 {article.description}
               </p>
-              <div className="text-sm text-gray-500 dark:text-gray-400">
+              <div className="text-sm text-gray-500">
                 Published on {article.source}
               </div>
             </Link>
