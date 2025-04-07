@@ -54,7 +54,7 @@ const projects = [
 ]
 
 const PlaceholderImage = () => (
-  <div className="w-full h-full flex items-center justify-center bg-gray-200 dark:bg-gray-700">
+  <div className="w-full h-full flex items-center justify-center bg-gray-200">
     <svg
       className="w-12 h-12 text-gray-400"
       fill="none"
@@ -90,8 +90,8 @@ export default function ProjectsPage() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden transition-transform duration-300 group-hover:scale-105">
-                <div className="aspect-video bg-gray-200 dark:bg-gray-700 relative">
+              <div className="bg-white rounded-lg shadow-lg overflow-hidden transition-transform duration-300 group-hover:scale-105">
+                <div className="aspect-video bg-gray-200 relative">
                   {project.image ? (
                     <Image
                       src={project.image}
@@ -104,17 +104,17 @@ export default function ProjectsPage() {
                   )}
                 </div>
                 <div className="p-6">
-                  <h2 className="text-xl font-semibold mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400">
+                  <h2 className="text-xl font-semibold mb-2 group-hover:text-blue-600">
                     {project.title}
                   </h2>
-                  <p className="text-gray-600 dark:text-gray-300 mb-4">
+                  <p className="text-gray-600 mb-4">
                     {project.description}
                   </p>
                   <div className="flex flex-wrap gap-2">
                     {project.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-sm rounded-full text-gray-600 dark:text-gray-300"
+                        className="px-2 py-1 bg-gray-100 text-sm rounded-full text-gray-600"
                       >
                         {tag}
                       </span>
