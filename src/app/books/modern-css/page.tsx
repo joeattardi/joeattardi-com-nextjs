@@ -1,6 +1,12 @@
 import modernCssCover from '@/images/modern-css-cover.jpg';
+import { Metadata } from 'next';
 import Image from 'next/image';
 import { FaAmazon, FaApple, FaBookOpen } from 'react-icons/fa';
+
+export const metadata: Metadata = {
+  title: 'Modern CSS | Joe Attardi',
+  description: 'A comprehensive guide to modern CSS, covering Flexbox, Grid, animations, and more.'
+};
 
 export default function ModernCSSPage() {
   const tableOfContents = [

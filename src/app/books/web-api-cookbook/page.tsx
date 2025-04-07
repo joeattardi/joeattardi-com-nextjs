@@ -2,6 +2,12 @@ import { FaAmazon, FaCode, FaBookOpen, FaApple, FaGoogle } from 'react-icons/fa'
 import { SiOreilly } from 'react-icons/si';
 import Image from 'next/image';
 import webApiCookbookCover from '@/images/web-api-cookbook-cover.jpg';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Web API Cookbook | Joe Attardi',
+  description: 'A comprehensive guide to modern web APIs, covering Asynchronous APIs, Simple Persistence with the Web Storage API, URLs and Routing, Network Requests, IndexedDB, Observing the DOM, Forms, The Web Animations API, The Web Speech API, Working With Files, Internationalization, Web Components, UI Elements, Device Integration, Measuring Performance, Working With the Console, CSS, Media, and more.'
+};
 
 export default function WebAPICookbookPage() {
   const tableOfContents = [

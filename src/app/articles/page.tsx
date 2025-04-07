@@ -2,6 +2,12 @@ import React from 'react';
 import { articles } from '../../data/articles';
 import Link from 'next/link';
 import * as motion from 'motion/react-client';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Articles | Joe Attardi',
+  description: 'Articles published by Joe Attardi'
+};
 
 const sortedArticles = articles.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
