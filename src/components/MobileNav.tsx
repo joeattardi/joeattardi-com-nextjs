@@ -39,6 +39,7 @@ export default function MobileNav() {
                             <MobileNavItem href="/blog" onClick={handleClose}>Blog</MobileNavItem>
                             <MobileNavItem href="/books" onClick={handleClose}>Books</MobileNavItem>
                             <MobileNavItem href="/articles" onClick={handleClose}>Articles</MobileNavItem>
+                            <MobileNavItem href="/projects" onClick={handleClose}>Projects</MobileNavItem>
                         </ul>
                     </motion.div>
                 )}

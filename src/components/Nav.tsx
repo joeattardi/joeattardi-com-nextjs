@@ -10,6 +10,7 @@ export default function Nav() {
                     <NavLink href="/blog">Blog</NavLink>
                     <NavLink href="/books">Books</NavLink>
                     <NavLink href="/articles">Articles</NavLink>
+                    <NavLink href="/projects">Projects</NavLink>
                 </ul>
             </nav>
             <MobileNav />
