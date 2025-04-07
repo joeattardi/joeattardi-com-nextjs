@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { Metadata } from 'next';
 import webApiCookbookCover from '@/images/web-api-cookbook-cover.jpg';
 import modernCssCover from '@/images/modern-css-cover.jpg';
+import * as motion from 'motion/react-client';
 
 export const metadata: Metadata = {
     title: 'Books | Joe Attardi',
@@ -40,9 +41,12 @@ export default function Books() {
             <h1 className="text-4xl font-bold mb-12">Books</h1>
 
             <div className="space-y-12">
-                {books.map((book) => (
-                    <article
+                {books.map((book, index) => (
+                    <motion.article
                         key={book.title}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, delay: index * 0.2 }}
                         className="bg-white rounded-xl shadow-lg overflow-hidden border border-zinc-200 hover:shadow-xl transition-shadow duration-300 p-4"
                     >
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -90,7 +94,7 @@ export default function Books() {
                                 </div>
                             </div>
                         </div>
-                    </article>
+                    </motion.article>
                 ))}
             </div>
         </div>
