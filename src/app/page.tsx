@@ -56,42 +56,48 @@ export default async function Home() {
             >
                 <h2 className="text-3xl font-bold mb-6">Latest Blog Posts</h2>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    {latestPosts.map((post) => (
-                        <Link 
-                            href={`/blog/${post.slug}`} 
+                    {latestPosts.map((post, index) => (
+                        <motion.div
                             key={post.slug}
-                            className="group block"
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.5, delay: index * 0.25 }}
                         >
-                            <article className="h-full bg-white rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden border border-zinc-200">
-                                {post.image && (
-                                    <div className="aspect-video relative">
-                                        <Image
-                                            src={post.image}
-                                            alt={post.title}
-                                            fill
-                                            className="object-cover"
-                                        />
-                                    </div>
-                                )}
-                                <div className="p-6 flex flex-col">
-                                    <h3 className="text-xl font-bold mb-2 group-hover:text-blue-600 transition-colors">
-                                        {post.title}
-                                    </h3>
-                                    {post.description && (
-                                        <p className="text-zinc-600 mb-4 flex-grow">
-                                            {post.description}
-                                        </p>
+                            <Link 
+                                href={`/blog/${post.slug}`} 
+                                className="group block"
+                            >
+                                <article className="h-full bg-white rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden border border-zinc-200">
+                                    {post.image && (
+                                        <div className="aspect-video relative">
+                                            <Image
+                                                src={post.image}
+                                                alt={post.title}
+                                                fill
+                                                className="object-cover"
+                                            />
+                                        </div>
                                     )}
-                                    <time className="text-sm text-zinc-500">
-                                        {new Date(post.pubDate).toLocaleDateString('en-US', {
-                                            year: 'numeric',
-                                            month: 'long',
-                                            day: 'numeric'
-                                        })}
-                                    </time>
-                                </div>
-                            </article>
-                        </Link>
+                                    <div className="p-6 flex flex-col">
+                                        <h3 className="text-xl font-bold mb-2 group-hover:text-blue-600 transition-colors">
+                                            {post.title}
+                                        </h3>
+                                        {post.description && (
+                                            <p className="text-zinc-600 mb-4 flex-grow">
+                                                {post.description}
+                                            </p>
+                                        )}
+                                        <time className="text-sm text-zinc-500">
+                                            {new Date(post.pubDate).toLocaleDateString('en-US', {
+                                                year: 'numeric',
+                                                month: 'long',
+                                                day: 'numeric'
+                                            })}
+                                        </time>
+                                    </div>
+                                </article>
+                            </Link>
+                        </motion.div>
                     ))}
                 </div>
             </motion.section>
