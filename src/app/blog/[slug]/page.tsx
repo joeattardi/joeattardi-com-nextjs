@@ -25,6 +25,18 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
         title: `${post.data.title} | Joe Attardi`,
         alternates: {
             canonical: post.data.canonicalUrl
+        },
+        openGraph: {
+            title: post.data.title,
+            description: post.data.description,
+            images: [
+                {
+                    url: post.data.ogImage,
+                    width: 1200,
+                    height: 630,
+                    alt: post.data.title
+                }
+            ]
         }
     };
 }

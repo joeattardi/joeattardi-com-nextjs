@@ -11,6 +11,7 @@ const onest = Onest({
 });
 
 export const metadata: Metadata = {
+    metadataBase: new URL('https://joeattardi-com-nextjs.pages.dev'),
     title: 'Joe Attardi',
     description: "Joe Attardi's personal website",
     icons: {
