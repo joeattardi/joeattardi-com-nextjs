@@ -17,8 +17,8 @@ export default function NotFound() {
                 <div className="space-y-4">
                     <h1 className="text-5xl font-bold text-gray-800">Oops!</h1>
                     <p className="text-xl text-gray-600">
-                        Looks like you've ventured into uncharted territory. 
-                        Don't worry, we'll help you find your way back!
+                        Looks like you&apos;ve ventured into uncharted territory. 
+                        Don&apos;t worry, we&apos;ll help you find your way back!
                     </p>
                 </div>
 
