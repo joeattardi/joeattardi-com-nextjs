@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Metadata } from 'next';
 import webApiCookbookCover from '@/images/web-api-cookbook-cover.jpg';
+import modernCssCover from '@/images/modern-css-cover.jpg';
 
 export const metadata: Metadata = {
     title: 'Books | Joe Attardi',
@@ -25,7 +26,7 @@ export default function Books() {
             title: 'Modern CSS',
             description:
                 'Master the key concepts of CSS for modern web development. Learn how to create responsive, maintainable, and beautiful websites.',
-            cover: '/blog/modern-css-cover.jpg',
+            cover: modernCssCover,
             link: '/books/modern-css',
             amazonLink:
                 'https://www.amazon.com/Modern-CSS-Master-Concepts-Development/dp/148426293X',
