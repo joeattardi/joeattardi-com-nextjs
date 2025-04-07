@@ -3,6 +3,8 @@ import { getPost } from '../utils';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import rehypeHighlight from 'rehype-highlight';
 import '@/app/atom-one-dark.css';
+import readingDuration from 'reading-duration';
+import { PiCalendar, PiClock, PiUser } from 'react-icons/pi';
 
 const options = {
     mdxOptions: {
@@ -34,18 +36,25 @@ const formatDate = (date: string) => {
 
 export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
     const post = await getPostData(params);
+    const readingTime = readingDuration(post.content, { emoji: false});
 
     return (
         <>
             <div className="flex flex-col gap-8 items-center w-[90vw] md:max-w-prose mx-auto">
-                <div className="flex flex-col gap-4">
+                <div className="flex flex-col gap-2 w-full">
                     <h2 className="text-4xl font-bold">{post.data.title}</h2>
                     <h3 className="text-lg text-zinc-500">{post.data.description}</h3>
                     <div className="flex items-center gap-2">
-                        <div className="text-zinc-600  self-start">Joe Attardi</div>
+                        <div className="text-zinc-600 self-start flex items-center gap-1">
+                            <PiUser /> Joe Attardi
+                        </div>
                         <span> • </span>
-                        <div className="text-zinc-600  self-start">
-                            {formatDate(post.data.pubDate)}
+                        <div className="text-zinc-600 self-start flex items-center gap-1">
+                            <PiCalendar />{formatDate(post.data.pubDate)}
+                        </div>
+                        <span> • </span>
+                        <div className="text-zinc-600 self-start flex items-center gap-1">
+                            <PiClock /> {readingTime}
                         </div>
                     </div>
                 </div>
