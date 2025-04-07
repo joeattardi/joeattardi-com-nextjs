@@ -20,7 +20,10 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     const post = await getPostData(params);
 
     return {
-        title: `${post.data.title} | Joe Attardi`
+        title: `${post.data.title} | Joe Attardi`,
+        alternates: {
+            canonical: post.data.canonicalUrl
+        }
     };
 }
 
