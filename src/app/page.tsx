@@ -1,4 +1,4 @@
-import joe from '@/images/avatar.jpg';
+import joe from '@/images/image3.png';
 import Image from 'next/image';
 import Link from 'next/link';
 import SocialButton from '@/components/SocialButton';
