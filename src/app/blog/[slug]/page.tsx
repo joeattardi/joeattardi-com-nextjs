@@ -58,14 +58,14 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
                     <h2 className="text-4xl font-bold">{post.data.title}</h2>
                     <h3 className="text-lg text-zinc-500">{post.data.description}</h3>
                     <div className="flex flex-col md:flex-row items-center gap-1 md:gap-2">
-                        <div className="text-zinc-600 self-start flex items-center gap-1">
-                            <Image src={joeBw} alt="Joe Attardi" width={32} height={32} /> Joe
-                            Attardi
+                        <div className="text-zinc-600 md:self-start flex flex-col md:flex-row items-center gap-1">
+                            <Image src={joeBw} alt="Joe Attardi" width={32} height={32} /> 
+                            <span>Joe Attardi</span>
                             <span className="hidden md:block"> • </span>
-                            <PiCalendar />
-                            {formatDate(post.data.pubDate)}
+                            <PiCalendar className="hidden md:block" />
+                            <span>{formatDate(post.data.pubDate)}</span>
                             <span className="hidden md:block"> • </span>
-                            <PiClock /> {readingTime}
+                            <PiClock className="hidden md:block" /> <span className="hidden md:block">{readingTime}</span>
                         </div>
                     </div>
                 </div>
