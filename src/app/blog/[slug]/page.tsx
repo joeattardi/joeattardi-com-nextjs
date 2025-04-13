@@ -5,7 +5,8 @@ import rehypeHighlight from 'rehype-highlight';
 import '@/app/atom-one-dark.css';
 import readingDuration from 'reading-duration';
 import { PiCalendar, PiClock, PiUser } from 'react-icons/pi';
-
+import joeBw from '@/images/joe-bw.png';
+import Image from 'next/image';
 const options = {
     mdxOptions: {
         rehypePlugins: [rehypeHighlight]
@@ -48,7 +49,7 @@ const formatDate = (date: string) => {
 
 export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
     const post = await getPostData(params);
-    const readingTime = readingDuration(post.content, { emoji: false});
+    const readingTime = readingDuration(post.content, { emoji: false });
 
     return (
         <>
@@ -58,14 +59,12 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
                     <h3 className="text-lg text-zinc-500">{post.data.description}</h3>
                     <div className="flex flex-col md:flex-row items-center gap-1 md:gap-2">
                         <div className="text-zinc-600 self-start flex items-center gap-1">
-                            <PiUser /> Joe Attardi
-                        </div>
-                        <span className="hidden md:block"> • </span>
-                        <div className="text-zinc-600 self-start flex items-center gap-1">
-                            <PiCalendar />{formatDate(post.data.pubDate)}
-                        </div>
-                        <span className="hidden md:block"> • </span>
-                        <div className="text-zinc-600 self-start flex items-center gap-1">
+                            <Image src={joeBw} alt="Joe Attardi" width={32} height={32} /> Joe
+                            Attardi
+                            <span className="hidden md:block"> • </span>
+                            <PiCalendar />
+                            {formatDate(post.data.pubDate)}
+                            <span className="hidden md:block"> • </span>
                             <PiClock /> {readingTime}
                         </div>
                     </div>
