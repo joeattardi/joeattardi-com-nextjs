@@ -1,0 +1,90 @@
+---
+title: 'Talk to your web browser with the Web Speech API'
+description: 'The modern web platform has a lot of great APIs, and the Web Speech API is one of them. It allows you to recognize and synthesize speech.'
+image: '/blog/web-speech-api.png'
+pubDate: '2025-04-18'
+canonicalUrl: 'https://frontendnotes.substack.com/p/quick-js-tip-talk-to-your-web-browser'
+---
+The Web Speech API is an interface for modern web browsers to perform speech recognition. You can talk to your web browser and get back what you said as text.
+
+This used to require some third-party tools like a browser plugin. Now, with the modern web platform, all you need is a browser.
+
+It's a little tricky because it's not widely supported across all modern browsers just yet. For now, your best bet is to use Chrome as that has the most complete support.
+
+## Preparing for speech recognition
+
+The first thing you'll need to do is create a `SpeechRecognition` object. This, also, is a little tricky. In the browsers that support this API, the object is actually called `webkitSpeechRecognition`. You can future-proof your code a little with the following snippet:
+
+```javascript
+const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+if (SpeechRecognition) {
+  const recognition = new SpeechRecognition();
+}
+```
+
+This way, you're covered now (when the object is called `webkitSpeechRecognition`) and in the future when the spec is better supported (when it's called `SpeechRecognition`).
+
+When a `SpeechRecognition` object recognizes speech, it emits a `result` event. The event contains information about the word or phrase that was recognized, including the recognized speech in text form (the result's transcript).
+
+```javascript
+recognition.addEventListener('result', event => {
+  const result = event.results[event.resultIndex];
+  console.log('Got speech:' + result[0].transcript);
+});
+```
+
+You can configure a `SpeechRecognition` object to present multiple possible results when it hears speech. This is controlled with the object's `maxAlternatives` property. By default, you get one result only.
+
+Like anything, speech recognition can have an error. To handle this, you should also listen for the recognition object's `error` event and handle it appropriately.
+
+Finally, you can start listening by calling start on the `SpeechRecognition` object.
+
+Here's a little Promise based helper for capturing speech easily.
+
+```javascript
+function captureSpeech() {
+  const SpeechRecognition = window.SpeechRecognition ||  
+     window.webkitSpeechRecognition;
+
+  const recognition = new SpeechRecognition();
+
+  return new Promise((resolve, reject) => {
+    recognition.addEventListener('result', event => {
+      const result = event.results[event.resultIndex];
+      resolve(result[0].transcript);
+    });
+
+    recognition.addEventListener('error', reject);
+
+    recognition.start();
+  }).finally(() => recognition.stop());
+}
+```
+
+Now you can capture speech as a one-liner!
+
+```javascript
+const phrase = await captureSpeech();
+```
+
+**Note**: With some browsers - like Chrome - your captured audio is sent to a remote server to perform recognition. It's not done on-device, which means you can't capture speech when offline.
+
+## Letting the browser talk back
+
+But that's not all! You can also use the Web Speech API to make the browser talk back to you. The code is a little more straightforward (and has better browser support, too):
+
+```javascript
+const utterance = new SpeechSynthesisUtterance('Hello world!');
+speechSynthesis.speak(utterance);
+```
+
+It's as simple as that.
+
+I hope you found this tip interesting. Here's some further information:
+
+- [Web Speech API (MDN)](https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API)
+- [Browser support for speech recognition (CanIUse.com)](https://caniuse.com/speech-recognition)
+- [Browser support for speech synthesis (CanIUse.com)](https://caniuse.com/speech-synthesis)
+
+You can also play with a couple of Web Speech API demos on the website for my book, [Web API Cookbook](https://www.webapis.info/examples/web-speech).

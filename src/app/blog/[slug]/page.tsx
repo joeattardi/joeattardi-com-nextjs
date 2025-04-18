@@ -4,7 +4,7 @@ import { MDXRemote } from 'next-mdx-remote/rsc';
 import rehypeHighlight from 'rehype-highlight';
 import '@/app/atom-one-dark.css';
 import readingDuration from 'reading-duration';
-import { PiCalendar, PiClock, PiUser } from 'react-icons/pi';
+import { PiCalendar, PiClock } from 'react-icons/pi';
 import joeBw from '@/images/joe-bw.png';
 import Image from 'next/image';
 const options = {
